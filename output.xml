@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.10.12 on linux)" generated="2024-05-20T20:57:47.574584" rpa="false" schemaversion="5">
+<suite id="s1" name="Primeiroteste" source="/home/laura/robot/ProjetoQaCoders/DesbravadoresRobot/tests/primeiroteste.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-05-20T20:57:47.823164" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-20T20:57:47.822864" elapsed="0.501528"/>
+</kw>
+<test id="s1-t1" name="05- Cadastro de Diretorias" line="33">
+<kw name="Realizar Login com sucesso" owner="testandoweb">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:57:48.326730" level="INFO">Opening url 'https://automacao.qacoders-academy.com.br/login'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-20T20:57:48.326374" elapsed="0.250551"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-20T20:57:48.577413" elapsed="0.108045"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:57:48.686641" level="INFO">Typing text 'sysadmin@qacoders.com' into text field '//*[@id="email"]'.</msg>
+<arg>${logarPagina.campoEmail}</arg>
+<arg>${preencherDados.campoEmail}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T20:57:48.685774" elapsed="0.115847"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:57:48.803078" level="INFO">Typing text '1234@Test' into text field '//*[@id="password"]'.</msg>
+<arg>${logarPagina.campoSenha}</arg>
+<arg>${preencherDados.campoSenha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T20:57:48.802030" elapsed="0.058804"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T20:57:51.861814" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T20:57:48.861270" elapsed="3.000917"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:57:51.863007" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<arg>${logarPagina.btnEntrar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T20:57:51.862432" elapsed="0.032428"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T20:57:54.895542" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T20:57:51.895177" elapsed="3.000688"/>
+</kw>
+<status status="PASS" start="2024-05-20T20:57:48.325884" elapsed="6.570153"/>
+</kw>
+<kw name="Cadastro de diretorias" owner="testandoweb">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:57:54.897491" level="INFO">Clicking element '//div[@class='MuiListItemText-root css-1tsvksn']'.</msg>
+<arg>${paginaCadastros.cadastros}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T20:57:54.896875" elapsed="0.034685"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T20:57:57.932765" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T20:57:54.932156" elapsed="3.001058"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:57:57.935280" level="INFO">Clicking element '//*[@id="Diretorias"]'.</msg>
+<arg>${paginaCadastros.btnDiretorias}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T20:57:57.933741" elapsed="0.038783"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${paginaCadastros.lblNomeDiretorias}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-20T20:57:57.972827" elapsed="0.032160"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:57:58.005878" level="INFO">Clicking element '//button[@class='css-fvzsut']'.</msg>
+<arg>${paginaCadastros.btnCadastroDiretorias}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T20:57:58.005280" elapsed="0.039886"/>
+</kw>
+<kw name="Name" owner="FakerLibrary">
+<msg time="2024-05-20T20:57:58.045808" level="INFO">${Nome_diretorias} = Maria Lopes</msg>
+<var>${Nome_diretorias}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2024-05-20T20:57:58.045470" elapsed="0.000481"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:57:58.046640" level="INFO">Typing text 'Maria Lopes' into text field '//*[@id="boardName"]'.</msg>
+<arg>${cadastroDiretorias.campoNomeDiretoria}</arg>
+<arg>${Nome_diretorias}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T20:57:58.046118" elapsed="0.059156"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T20:58:02.106020" level="INFO">Slept 4 seconds.</msg>
+<arg>4</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T20:57:58.105594" elapsed="4.000879"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:58:02.107895" level="INFO">Clicking element '//button[@class='css-1vmo4go']'.</msg>
+<arg>${cadastroDiretorias.btnSalvarDiretorias}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T20:58:02.106819" elapsed="0.031140"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T20:58:04.138765" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T20:58:02.138307" elapsed="2.000978"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${paginaCadastros.lblCodigoDiretoria}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-20T20:58:04.139813" elapsed="0.017798"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T20:58:06.158187" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T20:58:04.157880" elapsed="2.000571"/>
+</kw>
+<status status="PASS" start="2024-05-20T20:57:54.896475" elapsed="11.262137"/>
+</kw>
+<kw name="Pesquisar cadastro diretoria" owner="testandoweb">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>(//button[@class='css-kab9pu'])[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-20T20:58:06.159275" elapsed="0.280942"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T20:58:08.441237" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T20:58:06.440689" elapsed="2.001063"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T20:58:08.443141" level="INFO">Clicking element '(//button[@class='css-kab9pu'])[2]'.</msg>
+<arg>${cadastroDiretorias.btnBuscarDiretoria}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T20:58:08.442191" elapsed="0.030767"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T20:58:13.473723" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T20:58:08.473329" elapsed="5.000703"/>
+</kw>
+<kw name="${CodigoUltimaDiretoria} = Get Text">
+<msg time="2024-05-20T20:58:13.476683" level="FAIL">No keyword with name '${CodigoUltimaDiretoria} = Get Text' found.</msg>
+<arg>//ul[@class='css-76nm1l']/div/span</arg>
+<status status="FAIL" start="2024-05-20T20:58:13.476518" elapsed="0.000672">No keyword with name '${CodigoUltimaDiretoria} = Get Text' found.</status>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>//ul[@class="css-18psgb0"]/li[div/p[text()="${CodigoUltimaDiretoria}"]]/div/button[@id="edit"]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2024-05-20T20:58:13.477470" elapsed="0.000121"/>
+</kw>
+<status status="FAIL" start="2024-05-20T20:58:06.158913" elapsed="7.318840">No keyword with name '${CodigoUltimaDiretoria} = Get Text' found.</status>
+</kw>
+<status status="FAIL" start="2024-05-20T20:57:48.324772" elapsed="25.153758">No keyword with name '${CodigoUltimaDiretoria} = Get Text' found.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-20T20:58:13.479720" elapsed="0.065154"/>
+</kw>
+<status status="FAIL" start="2024-05-20T20:57:47.576746" elapsed="25.968402"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Primeiroteste">Primeiroteste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
