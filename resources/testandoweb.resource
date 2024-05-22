@@ -2,6 +2,8 @@
 
 Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
+Library     String
+
 
 ***Variables***
 
@@ -28,7 +30,7 @@ ${novo_texto}    a
 ...     editarDiretoria= editado
 
 &{paginaCadastros}
-...     cadastros=//div[@class='MuiListItemText-root css-1tsvksn']
+...     cadastros=//div[@class="MuiListItemText-root css-1tsvksn" and @id="Cadastros"]
 ...     btnUsuarios=//*[@id="Usuários"]
 ...     campoPesquisar=//input[@class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1o6z5ng"]
 ...     btnDiretorias=//*[@id="Diretorias"]
@@ -45,9 +47,10 @@ ${novo_texto}    a
 ...     lblEditarDiretoria=//h5[@class='css-np5g2k']
 ...     btnSalvarEdicao=//*[@id="save"]
 ...     btnBuscarDiretoria=(//button[@class='css-kab9pu'])[2]
-    
+...     CodDiretoriaCadastrada=(//ul[@class="css-76nm1l"]/div/span)
 
 *** Keywords ****
+
 
 Realizar Login com sucesso
     Go To   ${url}
@@ -66,6 +69,7 @@ Validar url
 Realizar login com email válido e senha inválida
 
     Go To   ${url}
+    Maximize Browser Window
     Input Text  ${logarPagina.campoEmail}   ${preencherDados.campoEmail}
     Input Text  ${logarPagina.campoSenha}   ${preencherDados.senhaInvalida}
     Sleep   3
@@ -89,31 +93,30 @@ Listar cadastros de usuários
     Sleep  5
     
 
-Cadastro de diretorias
-
+Cadastro de diretoria
     Click Element   ${paginaCadastros.cadastros}
     Sleep  3
     Click Element   ${paginaCadastros.btnDiretorias}
     Wait Until Element Is Visible  ${paginaCadastros.lblNomeDiretorias}
     Click Element   ${paginaCadastros.btnCadastroDiretorias}
-    ${Nome_diretorias}    FakerLibrary.Name
+    ${Nomes} =    FakerLibrary.Word
+    ${Nome_diretorias} =    Set Variable    ${Nomes}
     Input Text      ${cadastroDiretorias.campoNomeDiretoria}  ${Nome_diretorias}
     Sleep  4
     Click Element   ${cadastroDiretorias.btnSalvarDiretorias}
     Sleep  2
     Wait Until Element Is Visible   ${paginaCadastros.lblCodigoDiretoria}
     Sleep  2
+    Close Browser
 
     
 Pesquisar cadastro diretoria
     Scroll Element Into View    (//button[@class='css-kab9pu'])[2]
-    Sleep  2
-    Click Element   ${cadastroDiretorias.btnBuscarDiretoria}
-    Sleep   5
-    ${CodigoUltimaDiretoria} = Get Text  //ul[@class='css-76nm1l']/div/span
-    Scroll Element Into View    //ul[@class="css-18psgb0"]/li[div/p[text()="${CodigoUltimaDiretoria}"]]/div/button[@id="edit"]
-
-    
+    Sleep    2
+    Click Element    ${cadastroDiretorias.btnBuscarDiretoria}
+    Sleep    5
+    Scroll Element Into View    (//button[@class='css-kab9pu'])[2]
+    Sleep   3
 
 Cadastro de diretoria inválida
 
@@ -153,7 +156,7 @@ Editar diretoria com sucesso
     Click Element   ${paginaCadastros.btnDiretorias}
     Wait Until Element Is Visible  ${paginaCadastros.lblNomeDiretorias}
     Sleep  2
-    Click Element   xpath=//ul[@class="css-18psgb0"]/li[div/p[text()="01"]]/div/button[@id="edit"]
+    Click Element   xpath=//ul[@class="css-18psgb0"]/li[div/p[text()="03"]]/div/button[@id="edit"]
     Sleep  2
     Wait Until Element Is Visible  ${cadastroDiretorias.lblEditarDiretoria}
     ${texto_existente} =    Get Value    ${cadastroDiretorias.campoNomeDiretoria}

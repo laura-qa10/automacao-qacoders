@@ -2,12 +2,19 @@
 
 Library  SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
+Library     String
 Resource  ../resources/testandoweb.resource
 Suite Setup  Open Browser  about:blank  chrome
 Suite Teardown  Close Browser
 
-
 ***Test Cases***
+
+10 - Teste Completo
+    Realizar login com email válido e senha inválida
+    Cadastro de diretoria
+    Realizar logout
+
+
 
 01- Acessar com email válido e senha inválida
     Realizar login com email válido e senha inválida
@@ -30,10 +37,10 @@ Suite Teardown  Close Browser
     Realizar logout
 
 
-05- Cadastro de Diretorias
+05- Cadastro de Diretoria
     Realizar Login com sucesso
-    Cadastro de diretorias
-    Pesquisar cadastro diretoria
+    Cadastro de diretoria
+    
 
 06 - Cadastro de Diretoria inválida
     Realizar Login com sucesso
